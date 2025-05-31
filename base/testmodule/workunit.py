@@ -14,7 +14,7 @@ class WorkUnit:
         self.success: bool = False
         self.specifiers: List[Specifier] = []
         self.duration = datetime.timedelta(seconds=0)
-        self._error_message: str = ''
+        self.error_message: str = ''
 
     def add_specifiers(self, *specifiers: Specifier) -> 'WorkUnit':
         self.specifiers.extend(specifiers)
@@ -76,6 +76,6 @@ class WorkUnit:
             self.success = True
         except Exception as e:
             self.success = False
-            self._error_message = str(e)
+            self.error_message = str(e)
         else:
             self.specify(self.results)

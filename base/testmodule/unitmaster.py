@@ -33,11 +33,11 @@ class UnitMaster:
     def report_result(self):
         if not self.runed:
             return
-        # TODO 企业微信输出可以扣了，后续看怎么解决
         # 区分成功与否放在这里不合适，交给recorder区分吧，不然报错用例不好搞
         for unit in self.succeed_units:
             for recorders in self.recorders:
                 recorders.record(unit)
+        # TODO 修改这里的描述格式
         msg = textwrap.dedent('''### 测试任务执行记录。本次共执行<font color="info">{total_count}</font>条用例
             > 执行开始时间: <font color="comment">{starttime}</font>
             > 执行结束时间: <font color="comment">{endtime}</font>

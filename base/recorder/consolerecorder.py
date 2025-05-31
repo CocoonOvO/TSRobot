@@ -16,3 +16,4 @@ class ConsoleRecorder(BaseRecorder):
             print('用例失败: ', workunit.id)
             print('错误信息: ', workunit.error_message if hasattr(workunit, 'error_message') else '未知错误')
         return super().record(workunit)
+

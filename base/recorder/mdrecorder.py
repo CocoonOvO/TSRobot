@@ -18,11 +18,21 @@ class MdRecorder(BaseRecorder):
     
     def record(self,workunit:WorkUnit,specifier:Optional[Specifier] = None):
         if not workunit.success:
-            return
+            filename = self.path + workunit.id+'_'+datetime.datetime.now().strftime('%Y%m%d-%H%M%S')+'_failed.md' 
         results = specifier.get_transdata() if specifier is not None else workunit.results
         tb = TabWing(results)
         tabstr = tb.write_to_md_table()
         filename = self.path + workunit.id+'_'+datetime.datetime.now().strftime('%Y%m%d-%H%M%S')+'.md'
         with open(filename,'w') as f:
             f.writelines(tabstr)
+        return super().record(workunit)
+
+class MdErrorRecorder(MdRecorder):
+    def record(self,workunit:WorkUnit,specifier:Optional[Specifier] = None):
+        if workunit.success:
+            return
+        emsg = workunit.error_message
+        filename = self.path + workunit.id+'_'+datetime.datetime.now().strftime('%Y%m%d-%H%M%S')+'_error.md'
+        with open(filename,'w') as f:
+            f.write(emsg)
         return super().record(workunit)
