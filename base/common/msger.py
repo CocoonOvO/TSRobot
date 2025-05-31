@@ -3,12 +3,10 @@ import requests
 import json
 import os
 
-from .config import Config
-
 class Msger:
-    def __init__(self):
-        self.wx_robots = Config().get('wx_robots', [])
-        self.enable_wx = Config().get('enable_wx',False)
+    def __init__(self,enable_wx:bool=False,wx_robots:list=[]):
+        self.wx_robots = wx_robots
+        self.enable_wx = enable_wx
 
     def send_msg(self, msg: str):
         data = {'msgtype': 'markdown', 'markdown': {'content': msg}}

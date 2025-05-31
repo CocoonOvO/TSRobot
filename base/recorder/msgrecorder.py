@@ -2,7 +2,6 @@ from typing import Optional
 from .baserecorder import BaseRecorder
 from ..utils.tabwing import TabWing
 from ..testmodule.workunit import WorkUnit
-from ..common.config import Config
 from ..common.msger import Msger
 from ..common.specifier import Specifier
 import datetime
