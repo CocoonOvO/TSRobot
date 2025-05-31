@@ -3,4 +3,3 @@
 
 # 忽略 /reports 下所有文件，但保留目录结构
 /reports/**
-!/reports/.gitkeep  # 排除占位文件（重要！）

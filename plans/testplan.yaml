@@ -1,0 +1,14 @@
+- id: testplan.测试计划1
+  description: 这是测试计划，纯控制台输出
+  cases:
+    - test0
+  recorders:
+    - console
+- id: testplan.测试计划2
+  description: 这是测试计划，包含文件输出
+  cases: 
+    - test0
+    - test0
+  recorders:
+    - console
+    - md
