@@ -4,7 +4,6 @@ from ..common.specifier import Specifier
 from .baserecorder import BaseRecorder
 from ..utils.tabwing import TabWing
 from ..testmodule.workunit import WorkUnit
-from ..common.config import Config
 import datetime
 
 
