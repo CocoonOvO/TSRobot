@@ -17,6 +17,5 @@ class MsgRecorder(BaseRecorder):
         tb = TabWing(results)
         tabstr = tb.write_to_md_table()
         file_name = workunit.id+'_'+datetime.datetime.now().strftime('%Y%m%d-%H%M%S')+'.md'
-        # 不是单例模式，这么写有点抽象
         Msger().send_file_from_string(filename=file_name,file_str=tabstr)
         return super().record(workunit)
