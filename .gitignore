@@ -1,0 +1,12 @@
+# 忽略整个 /test 目录
+/test/
+
+# 忽略 /reports 下所有文件，但保留目录结构
+/reports/**
+
+# Python 缓存文件
+__pycache__/    # 忽略所有 __pycache__ 目录
+*.pyc           # 忽略所有 .pyc 文件
+*.pyo           # 忽略所有 .pyo 文件
+*.pyd           # 忽略 Windows 编译的 Python 扩展文件
+*.egg-info/     # 忽略 setuptools 生成的包信息目录
